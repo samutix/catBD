@@ -1,0 +1,148 @@
+CREATE TABLE proveedor
+(  
+   ID_proveedor INT NOT NULL AUTO_INCREMENT,
+   nombre_prove VARCHAR(255) NOT NULL,
+   categoria_prove VARCHAR(255) NOT NULL,
+   pais_prove VARCHAR(255) NOT NULL,
+   ciudad_prove VARCHAR(255) NOT NULL,
+   direccion_prove VARCHAR(255) NOT NULL,		
+   PRIMARY KEY (ID_proveedor)
+);
+
+
+
+
+CREATE TABLE tipo_producto
+(
+  ID_tipo_producto INT NOT NULL AUTO_INCREMENT, 
+  nombre_tipo VARCHAR(255) NOT NULL,
+  cantidad INT NOT NULL,
+  PRIMARY KEY (ID_tipo_producto)				
+);
+
+
+
+
+CREATE TABLE combinacion
+(
+  ID_combinacion INT NOT NULL AUTO_INCREMENT, 
+  col1 VARCHAR(255) NOT NULL,
+  col2 VARCHAR(255) NOT NULL,
+  col3 VARCHAR(255) NOT NULL,
+  cod_co VARCHAR(255) NOT NULL, 
+  PRIMARY KEY (ID_combinacion)				
+);
+
+
+
+
+CREATE TABLE tallaje
+(
+  ID_tallaje INT NOT NULL AUTO_INCREMENT, 
+  tipo_ta VARCHAR(255) NOT NULL,
+  PRIMARY KEY (ID_tallaje)				
+);
+
+
+
+
+CREATE TABLE talla
+(
+  ID_talla INT NOT NULL AUTO_INCREMENT, 
+  talla_ti VARCHAR(255) NOT NULL,
+  tallaje_ID INT NOT NULL, 
+  PRIMARY KEY (ID_talla),
+  FOREIGN KEY (tallaje_ID)
+  REFERENCES tallaje(ID_tallaje)					
+);
+
+
+
+
+CREATE TABLE temporada
+(
+  ID_temporada INT NOT NULL AUTO_INCREMENT, 
+  nombre_te VARCHAR(255) NOT NULL,
+  fecha_inicio DATE NOT NULL,
+  fecha_fin DATE NOT NULL, 
+  PRIMARY KEY (ID_temporada)				
+);
+
+
+
+
+CREATE TABLE zona
+(
+  ID_zona INT NOT NULL AUTO_INCREMENT, 
+  nombre_zo VARCHAR(255) NOT NULL,
+  ubicacion_zo VARCHAR(255) NOT NULL,
+  PRIMARY KEY (ID_zona)				
+);
+
+
+
+
+CREATE TABLE insumo
+(
+   ID_insumo INT NOT NULL AUTO_INCREMENT,
+   nombre_in VARCHAR(255) NOT NULL,
+   zona_ID INT NOT NULL,
+   tipo_in VARCHAR(255) NOT NULL,		
+   PRIMARY KEY (ID_insumo),
+   FOREIGN KEY (zona_ID)
+   REFERENCES zona (ID_zona) 	   	
+);
+
+
+
+
+CREATE TABLE insumoxproveedor
+(  
+   insumo_ID INT NOT NULL ,
+   proveedor_ID INT NOT NULL,		
+   FOREIGN KEY (insumo_ID)
+   REFERENCES insumo (ID_insumo),   
+   FOREIGN KEY (proveedor_ID)
+   REFERENCES proveedor (ID_proveedor)
+);
+
+
+
+CREATE TABLE producto
+(
+   ID_producto INT NOT NULL AUTO_INCREMENT,
+   nombre_prod VARCHAR(255) NOT NULL,
+   codigo INT NOT NULL, 
+   stock INT NOT NULL,
+   zona_ID INT NOT NULL,
+   tipo_producto_ID INT NOT NULL,
+   PRIMARY KEY (ID_producto),
+   FOREIGN KEY (zona_ID)	 
+   REFERENCES zona (ID_zona),
+   FOREIGN KEY (tipo_producto_ID)	 
+   REFERENCES tipo_producto (ID_tipo_producto)
+);
+
+
+
+CREATE TABLE modelo
+(
+   ID_modelo INT NOT NULL AUTO_INCREMENT,
+   nombre_modelo VARCHAR(255) NOT NULL,
+   categoria_tipo VARCHAR(255) NOT NULL,		
+   producto_ID INT NOT NULL,
+   temporada_ID INT NOT NULL, 
+   combinacion_ID INT NOT NULL,
+   tallaje_ID INT NOT NULL,
+   PRIMARY KEY (ID_modelo), 
+   FOREIGN KEY (producto_ID)
+   REFERENCES producto (ID_producto),   
+   FOREIGN KEY (temporada_ID)
+   REFERENCES temporada (ID_temporada),
+   FOREIGN KEY (combinacion_ID)
+   REFERENCES combinacion (ID_combinacion),   
+   FOREIGN KEY (tallaje_ID)
+   REFERENCES tallaje (ID_tallaje)	
+);
+
+

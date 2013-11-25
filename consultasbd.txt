@@ -1,0 +1,52 @@
+Consultas BD
+
+a.rename table temporadas to temporada;
+b.alter table modelo add precio INT NULL;
+c.alter table temporada add pais_referencia VARCHAR(50) NULL;
+d.
+INSERT INTO modelo (nombre_modelo,categoria_tipo,precio,producto_ID,temporada_ID,combinacion_ID,tallaje_ID)
+VALUES ('bordado','vestido',30000,1,1,1,1),
+       ('cuello','polera',9000,2,2,2,2),
+       ('entrada','polera',48000,3,10,3,3),
+       ('cornisa','poleron',12000,3,10,3,3); 
+INSERT INTO temporada (nombre_te, fecha_inicio, fecha_fin,pais_referencia)
+VALUES ('otoño', '2013-03-21', '2013-06-20','Canada'),
+       ('primavera', '2013-09-21', '2013-12-20','Italia'),
+       ('verano', '2013-12-21', '2014-03-20','Francia');
+
+e.INSERT INTO tipo_producto (nombre_tipo)
+  VALUES('UDLA');
+
+f. select * from temporada;
+
+g. select * from modelo order by nombre_modelo desc; 
+
+h. select * from where precio > 10.000 and precio < 50.000;
+
+i.select * from modelo where temporada_ID=3;
+
+j.el comando sería
+  select precio, nombre_prod from modelo, producto where tipo_producto_ID= 4;
+
+sin embargo como en el punto e agregamos recien el valor 'UDLA' no lo tendre definido en mis llaves foraneas ya definidas no se si me entiende profe
+pero en si ese el comando, por lo tanto entregara un valor vacio.
+
+
+k. update modelo set precio =250 where temporada_ID=10;
+
+l. INSERT INTO insumo (nombre_in,tipo_in,zona_ID)
+   VALUES ('hilo coser','hilo', '2'),
+
+m. select  proveedor where ID= 1;
+
+n.select avg(precio) from modelo;
+
+o.select min(precio) from modelo; 
+
+
+
+
+
+
+
+

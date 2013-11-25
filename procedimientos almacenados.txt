@@ -1,0 +1,27 @@
+Cree en su base de datos, a su criterio, al menos 3 Procedimientos almacenados
+
+	CREATE PROCEDURE insertarta (in ti_ta VARCHAR(255))
+	  begin
+
+		INSERT INTO tallaje (talla_ti) values (ti_ta);
+
+	  end$$
+
+
+	CREATE PROCEDURE borrar (in id int)
+	  begin
+
+		DELETE FROM tallaje WHERE ID_tallaje=id;
+
+	  end$$
+
+
+
+	CREATE PROCEDURE insertarte (in no_te VARCHAR(255), in fe_ini DATE, in fe_fi DATE)
+	  begin
+  
+		insert into temporada (nombre_te,fecha_inicio,fecha_fin) values (no_te,fe_ini,fe_fi);
+
+	  end$$
+
+	

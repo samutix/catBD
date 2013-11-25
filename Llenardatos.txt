@@ -1,0 +1,71 @@
+INSERT INTO proveedor (nombre_prove, categoria_prove, pais_prove,ciudad_prove,direccion_prove)
+VALUES ('Samuel Orellana', 'artificial', 'Chile','Santiago','Las Condes 34'),
+       ('Bernardo Diaz','sintetico', 'Chile','Melipilla','San marcos 12'),
+       ('Felipe Valenzuela','natural', 'Japon','Tokio','Yuhinika 45');
+
+
+INSERT INTO tipo_producto (nombre_tipo,cantidad)
+VALUES ('Algodon',43),
+       ('Seda',50),
+       ('Cuero',60);
+
+
+INSERT INTO combinacion (col1,col2,col3,cod_co)
+VALUES ('verde','amarillo','rojo',32604),
+       ('azul','dorado','negro',32605),
+       ('amarillo','blanco','cafe',60);
+
+
+INSERT INTO tallaje (tipo_ta)
+VALUES ('cintura'),
+       ('pecho'),
+       ('cadera');
+
+INSERT INTO talla (talla_ti,tallaje_ID)
+VALUES ('L',1),
+       ('M',2),
+       ('S',3);
+
+
+INSERT INTO temporada (nombre_te, fecha_inicio, fecha_fin)
+VALUES ('otoño_2010', '2010-03-21', '2010-06-20'),
+       ('primavera_2010', '2010-09-21', '2010-12-20'),
+       ('verano_2010', '2010-12-21', '2011-03-20'),
+	('otoño_2011', '2011-03-21', '2011-06-20'),
+       ('primavera_2011', '2011-09-21', '2011-12-20'),
+       ('verano_2011', '2011-12-21', '2012-03-20'),
+	('otoño_2012', '2012-03-21', '2012-06-20'),
+       ('primavera_2012', '2012-09-21', '2012-12-20'),
+       ('verano_2012', '2012-12-21', '2013-03-20'),
+	('invierno_2013', '2013-07-21', '2013-09-20'),
+       ('primavera_2013', '2013-09-21', '2013-12-20'),
+       ('verano_2013', '2013-12-21', '2014-03-20');
+
+INSERT INTO zona (nombre_zo,ubicacion_zo)
+VALUES ('mantencion','clave3'),
+       ('devolucion','clave4'),
+       ('entrega','clave5');
+
+
+INSERT INTO insumo (nombre_in,tipo_in,zona_ID)
+VALUES ('lana','textil',1),
+       ('nailon','textil',2),
+       ('lino','textil',3);
+
+
+INSERT INTO producto (nombre_prod,codigo,stock,zona_ID,tipo_producto_ID)
+VALUES ('algodon','33024',5,1,1),
+       ('cuero','33025',29,2,2),
+       ('lino','33026',9,3,3);
+
+
+INSERT INTO modelo (nombre_modelo,categoria_tipo,producto_ID,temporada_ID,combinacion_ID,tallaje_ID)
+VALUES ('bordado sueco','pantalon',1,10,1,1),
+       ('dobles cuello','camisa',2,10,2,2),
+       ('basta','polera',3,3,3,3);
+
+
+
+
+
+
